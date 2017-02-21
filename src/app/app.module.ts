@@ -5,9 +5,10 @@ import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
 
 import {AppComponent} from './app.component';
-import {CrisisListComponent} from './components/crisis-list/crisis-list.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {HeroesModule} from "./heroes/heroes.module";
+import {CrisisCenterModule} from "./crisis-center/crisis-center/crisis-center.module";
+import { ComposeMessageComponent } from './components/compose-message/compose-message.component';
 
 @NgModule({
   imports: [
@@ -15,12 +16,15 @@ import {HeroesModule} from "./heroes/heroes.module";
     FormsModule,
     HttpModule,
     HeroesModule,
+    CrisisCenterModule,
     AppRoutingModule,
   ],
   declarations: [
     AppComponent,
-    CrisisListComponent,
+
     PageNotFoundComponent,
+
+    ComposeMessageComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
