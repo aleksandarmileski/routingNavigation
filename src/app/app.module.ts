@@ -5,6 +5,7 @@ import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from './app-routing.module';
 import {CrisisCenterModule} from "./crisis-center/crisis-center.module";
 import {HeroesModule} from "./heroes/heroes.module";
+import {AdminModule} from "./admin/admin.module";
 
 import {AppComponent} from './app.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
@@ -18,6 +19,7 @@ import {DialogService} from "./services/dialog.service";
     HttpModule,
     HeroesModule,
     CrisisCenterModule,
+    AdminModule,
     AppRoutingModule,
   ],
   declarations: [
