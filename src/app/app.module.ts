@@ -6,8 +6,6 @@ import {Router} from "@angular/router";
 import {AppRoutingModule} from './app-routing.module';
 import {HeroesModule} from "./heroes/heroes.module";
 import {LoginRoutingModule} from "./components/login/login-routing.module";
-import {AdminModule} from "./admin/admin.module";
-import {CrisisCenterModule} from "./crisis-center/crisis-center.module";
 
 import {AppComponent} from './app.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
@@ -21,8 +19,6 @@ import {LoginComponent} from './components/login/login.component';
     FormsModule,
     HttpModule,
     HeroesModule,
-    CrisisCenterModule,
-    AdminModule,
     LoginRoutingModule,
     AppRoutingModule,
   ],

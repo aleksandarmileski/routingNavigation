@@ -1,15 +1,27 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.component";
 import {ComposeMessageComponent} from "./components/compose-message/compose-message.component";
 import {CanDeactivateGuard} from "./guards/can-deactivate-guard.service";
+import {AuthGuard} from "./guards/auth-guard.service";
+import {SelectivePreloadingStrategy} from "./selective-preloading-strategy";
 
 const routes: Routes = [
   {
     path: 'compose',
     component: ComposeMessageComponent,
     outlet: 'popup'
+  },
+  {
+    path: 'admin',
+    loadChildren: 'app/admin/admin.module#AdminModule',
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'crisis-center',
+    loadChildren: 'app/crisis-center/crisis-center.module#CrisisCenterModule',
+    data: {preload: true}
   },
   {
     path: '',
@@ -23,10 +35,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+    routes,
+    // {preloadingStrategy: PreloadAllModules}
+    {preloadingStrategy: SelectivePreloadingStrategy}
+  )],
   exports: [RouterModule],
   providers: [
-    CanDeactivateGuard
+    CanDeactivateGuard,
+    SelectivePreloadingStrategy
   ]
 })
 export class AppRoutingModule {
