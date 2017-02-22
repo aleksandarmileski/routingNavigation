@@ -1,12 +1,14 @@
 import {Component, OnInit, HostBinding} from '@angular/core';
-import {Crisis} from "../crisis.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DialogService} from "../../services/dialog.service";
+import {slideInDownAnimation} from "../../animations";
+import {Crisis} from "../crisis.service";
 
 @Component({
   selector: 'rn-crisis-detail',
   templateUrl: './crisis-detail.component.html',
-  styleUrls: ['./crisis-detail.component.css']
+  styleUrls: ['./crisis-detail.component.css'],
+  animations: [slideInDownAnimation]
 })
 export class CrisisDetailComponent implements OnInit {
 

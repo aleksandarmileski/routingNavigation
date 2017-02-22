@@ -36,6 +36,7 @@ export class CrisisListComponent implements OnInit {
 
     // Navigate with relative link
     this.router.navigate([crisis.id], {relativeTo: this.route});
+    // this.router.navigate(['hero', hero.id]);
   }
 
 }
